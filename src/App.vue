@@ -1,30 +1,65 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <navbar @click:sidebar="onClickSidebar" />
+  <Sidebar v-model:visible="visibleLeft"> Content </Sidebar>
+  <div class="layout-body">
+    <router-view />
   </div>
-  <router-view/>
 </template>
 
+<script>
+import { provide, ref, watch } from "vue";
+import Navbar from "./components/Navbar.vue";
+import { useRoute } from "vue-router";
+
+export default {
+  components: { Navbar },
+  setup() {
+    const visibleLeft = ref(false);
+    const selectedDocs = ref("");
+
+    const route = useRoute("init");
+
+    watch(
+      () => route.params,
+      async (newParams) => {
+        console.log("New parameter:" ,newParams);
+        if ( !("category1" in newParams) ) {
+          selectedDocs.value = "init";
+          return;
+        }
+        let cat1 = newParams.category1;
+        if ("category2" in newParams) {
+          selectedDocs.value = `${cat1}.${newParams.category2}`;
+        } else {
+          selectedDocs.value = `${cat1}`;
+        }
+      }
+    );
+
+
+    provide("selectedDocs", selectedDocs);
+    // provide("setSelectedDocs", setSelectedDocs);
+
+    function onClickSidebar() {
+      visibleLeft.value = !visibleLeft.value;
+    }
+    return { visibleLeft, onClickSidebar };
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+/* .layout-body {
+} */
+body {
+  /* margin: 0; */
+  overflow-x: hidden;
+  background-color: var(--surface-a);
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+html * :not(.pi) {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol !important;
 }
 </style>
