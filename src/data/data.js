@@ -1,36 +1,39 @@
-import mobile from "raw-loader!../data/auth/mobile.md"
-import website from "raw-loader!../data/auth/website.md"
+import tipe_user from "raw-loader!../data/auth/tipe_user.md"
+import penggunaan from "raw-loader!../data/auth/penggunaan.md"
 import getstarted from "raw-loader!../data/getstarted.md"
 import router from "../router"
 
 export default {
     "sidebar": [
         {
-            "label": "Get Started",
+            "label": "Permulaan",
             "command": ()=>{
                 router.push("/docs");
             }
         },
         {
-            "label": "Authentication",
-            "items": [{
-                "label": "Mobile",
-                "to": "/docs/auth/mobile"
-            },
+            "label": "Tipe User",
+            "command": ()=>{
+                router.push("/docs/auth/typeuser");
+            }
+        },
+        {
+            "label": "Autentikasi",
+            "items": [
             {
-                "label": "Website",
-                "to": "/docs/auth/website"
+                "label": "Pengenalan",
+                "to": "/docs/auth/introducing"
             }
             ]
         }
     ],
     "key": {
         "auth": {
-            "mobile": {
-                "docs": mobile
+            "typeuser": {
+                "docs": tipe_user
             },
-            "website": {
-                "docs": website
+            "introducing": {
+                "docs": penggunaan
             }
         },
         "init": {

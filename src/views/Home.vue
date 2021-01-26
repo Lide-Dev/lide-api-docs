@@ -12,7 +12,7 @@
         </p>
         <div class="p-d-flex p-mt-5 p-jc-center">
           <span class="p-buttonset">
-            <Button label="Get Started" />
+            <Button label="Get Started" @click="clickDocs" />
             <Button label="API Reference" />
           </span>
         </div>
@@ -25,7 +25,7 @@
         </p>
         <div class="p-d-flex p-mt-5">
           <span class="p-buttonset">
-            <Button label="Get Started" />
+            <Button label="Get Started" @click="clickDocs" />
             <Button label="API Reference" />
           </span>
         </div>
@@ -36,13 +36,19 @@
 </template>
 
 <script>
+import router from "../router";
 // import { ref } from "vue";
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
-
+  setup() {
+    function clickDocs() {
+      router.push("/docs");
+    }
+    return { clickDocs };
+  },
 };
 </script>
 
@@ -54,7 +60,7 @@ export default {
 
 .layout-introduction {
   margin-top: 20px;
-  height: 70vh;
+  min-height: 75vh;
   color: var(--text-color);
 }
 </style>

@@ -4,6 +4,7 @@ import router from './router'
 import PrimeVue from 'primevue/config';
 import VueMarkdownIt from 'vue3-markdown-it';
 import PanelMenu from 'primevue/panelmenu';
+import Card from 'primevue/card';
 
 import 'primevue/resources/themes/arya-green/theme.css';
 import 'primevue/resources/primevue.min.css';
@@ -22,6 +23,7 @@ app.component('Button', Button);
 app.component('Dropdown', Dropdown);
 app.component('Sidebar', Sidebar);
 app.component('PanelMenu', PanelMenu);
+app.component('Card', Card);
 
 app.use(VueMarkdownIt);
 app.use(router);
