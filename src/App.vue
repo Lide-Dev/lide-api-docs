@@ -8,12 +8,24 @@
         <br />
         <div class="p-col-12">
           <router-link to="/docs"
-            ><Button label="Documentation" class="p-col-12 p-button-text p-text-left"></Button
+            ><Button
+              label="Documentation"
+              class="p-col-12 p-button-text p-text-left"
+            ></Button
           ></router-link>
         </div>
         <div class="p-col-12">
           <router-link to="/about"
-            ><Button label="About" class="p-col-12 p-button-text p-text-left"></Button
+            ><Button
+              label="About"
+              class="p-col-12 p-button-text p-text-left"
+            ></Button
+          ></router-link>
+          <router-link to="/pages"
+            ><Button
+              label="Pages"
+              class="p-col-12 p-button-text p-text-left"
+            ></Button
           ></router-link>
         </div>
       </div>
@@ -36,15 +48,17 @@ import { provide, reactive, ref, watch } from "vue";
 import Navbar from "./components/Navbar.vue";
 import { useRoute } from "vue-router";
 import SidebarDocs from "./components/SidebarDocs.vue";
-import Document from "./data/data.js";
-import CFooter from './components/Footer.vue';
+import Versioning from "./data/versioning";
+import CFooter from "./components/Footer.vue";
 
 export default {
   components: { Navbar, SidebarDocs, CFooter },
   setup() {
     const visibleLeft = ref(false);
     const selectedDocs = ref("");
-    const documents = reactive(Document);
+    const version = ref("v1");
+
+    const documents = reactive(Versioning[version.value]());
 
     const route = useRoute("init");
 
@@ -65,6 +79,7 @@ export default {
       }
     );
 
+    provide("versionSelected", version);
     provide("selectedDocs", selectedDocs);
     // provide("setSelectedDocs", setSelectedDocs);
 

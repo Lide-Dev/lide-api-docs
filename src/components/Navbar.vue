@@ -22,6 +22,9 @@
         <router-link to="/about"
           ><Button label="About" class="p-button-text"></Button
         ></router-link>
+        <router-link to="/pages"
+          ><Button label="Pages" class="p-button-text"></Button
+        ></router-link>
       </div>
       <div class="p-col-2 p-d-md-flex p-d-none p-jc-end p-align-center">
         <Dropdown

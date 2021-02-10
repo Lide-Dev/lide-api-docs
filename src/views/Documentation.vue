@@ -8,101 +8,41 @@
     <div
       class="p-col-10 p-md-offset-2 p-lg-offset-1 p-offset-1 p-md-7 p-lg-8 layout-documentation-body"
     >
-      <vue3-markdown-it
-        class="layout-documentation-content"
-        :source="source"
-        :plugins="plugins"
-        :html="true"
-      />
-      <div v-if="selected === 'init'">
-        <Card class="layout-server-1 p-col-12 p-md-6 p-shadow-6">
-          <template #title> Status Server API Response </template>
-          <template #content>
-            Server yang mengontrol request API. URL yang digunakan adalah
-            https://laron-server-side.sharedwithexpose.com/api.
-            <p><b>Status :</b> {{ serverStatus }}</p>
-          </template>
-          <template #footer>
-            <Button label="Refresh" :disabled="onRequest" @click="refresh" />
-          </template>
-        </Card>
-        <blockquote class="quote-info">
-          <p>
-            <em
-              >Ketika ingin mengecek status server dan response balasannya ditolak oleh
-              CORS, itu wajar karena sisi klien merequest ke server layanan tunneling
-              bukan server lokal, yang berarti server lokal tidak aktif.</em
-            >
-          </p>
-        </blockquote>
-        <!--  -->
-      </div>
+      <content-docs :source="source" />
     </div>
   </div>
 </template>
 
 <script>
-import { computed, inject, onMounted, reactive, ref } from "vue";
-import MarkdownAttribute from "markdown-it-attrs";
-import Document from "../data/data.js";
-// import { useRoute } from "vue-router";
+import { computed, inject, provide, reactive, ref } from "vue";
+import Versioning from "../data/versioning.js";
 import SidebarDocs from "../components/SidebarDocs.vue";
-import axios from "axios";
+import ContentDocs from "../components/Content.vue";
 
 export default {
-  components: { SidebarDocs },
+  components: { SidebarDocs, ContentDocs },
   setup() {
     // const router = useRouter();
     // const route = useRoute();
     console.log("JSON:", Document);
+    const version = inject("versionSelected");
     const selected = inject("selectedDocs");
-    const documents = reactive(Document);
-    const serverStatus = ref("Tidak Aktif.");
+    const documents = reactive(Versioning[version.value]());
     const onRequest = ref(false);
-    const plugins = [{ plugin: MarkdownAttribute }];
+
+    const indexDocsPlatform = ref(0); //0 pc 1 mobile
     const source = computed(() => {
       if (selected.value.includes(".")) {
         let a = selected.value.split(".", 2);
-        return documents.key[a[0]][a[1]].docs;
+        return documents.key[a[0]][a[1]];
       } else {
         // console.log(documents.key[selected.value].docs);
-        return documents.key[selected.value].docs;
+        return documents.key[selected.value];
       }
     });
 
-    onMounted(() => {
-      refresh();
-    });
-
-    async function refresh() {
-      if (onRequest.value) return;
-      onRequest.value = true;
-      serverStatus.value = "Sedang Request API...";
-
-      await axios
-        .get("https://laron-server-side.sharedwithexpose.com/api/active")
-        .then(() => {
-          serverStatus.value = "Aktif.";
-        })
-        .catch((error) => {
-          if (error.response) {
-            switch (error.response.status) {
-              case 429:
-                serverStatus.value = "Terkena Limit namun Server Aktif.";
-                break;
-
-              default:
-                serverStatus.value = "Tidak Aktif.";
-                break;
-            }
-          } else {
-            serverStatus.value = "Tidak Aktif.";
-          }
-
-          // 429
-        });
-      onRequest.value = false;
-    }
+    provide("refOnRequest", onRequest);
+    provide("refIndexDocsPlatform", indexDocsPlatform);
 
     // import(
     //   "../data/" + documents.key[selected.value].docs + ".md"
@@ -110,11 +50,9 @@ export default {
     return {
       documents,
       source,
-      plugins,
       selected,
-      serverStatus,
       onRequest,
-      refresh,
+      indexDocsPlatform,
     };
   },
 };
