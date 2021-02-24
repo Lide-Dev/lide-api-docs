@@ -3,8 +3,13 @@
 # abort on errors
 # set -e
 
+rm deploy -R
+
+mkdir deploy
+
 # build
 npm run build
+
 
 # navigate into the build output directory
 cd dist
