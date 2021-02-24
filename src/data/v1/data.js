@@ -57,6 +57,28 @@ export default {
                     "to": "\/docs\/resource\/resource-user"
                 }
             ]
+        },
+        {
+            "label": "Query Plugin",
+            "command": null,
+            "items": [
+                {
+                    "label": "Penjelasan",
+                    "to": "\/docs\/query_plugin\/introduction"
+                },
+                {
+                    "label": "Conditional",
+                    "to": "\/docs\/query_plugin\/conditional"
+                },
+                {
+                    "label": "Sorting",
+                    "to": "\/docs\/query_plugin\/sort"
+                },
+                {
+                    "label": "Only\/Except",
+                    "to": "\/docs\/query_plugin\/only_except"
+                }
+            ]
         }
     ],
     "key": { ...initDefault, 
@@ -65,14 +87,14 @@ export default {
                 {
                     "type": "docs",
                     "value": "# Tipe Pengguna\n---\n\nAplikasi Laron mempunyai 3 tipe pengguna yang akan mempengaruhi bisnis dari aplikasi ini. Setiap tipe pengguna mempunyai akses API yang berbeda sesuai dengan tipe pengguna. Tipe pengguna tersebut terdiri dari:\n\n- Pelanggan (_Customer_)\n- Admin (Pengelola dan Pemilik Bumdesa)\n- Produsen (_Producer_)\n\n### 1. Pelanggan\n\nPelanggan disini mempunyai fungsi untuk melihat produk, berkomunikasi dengan layanan bumdesa, dan membeli produk. Maksud dari berkomunikasi disini adalah pelanggan dapat bertanya soal stok atau bertanya lebih jauh lagi tentang produk yang pelanggan tertarik.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/customers**\n\n### 2. Admin\n\nAdmin adalah pengelola tertinggi dari aplikasi Laron. Terdapat dua tipe admin, yaitu **Admin Pengelola** dan **Admin Bumdesa**. **Admin Pengelola** mempunyai fungsi untuk mengurus produk yang masuk dari UMKM atau produk desa dan berkomunikasi dengan pelanggan. **Admin Pengelola** juga dapat memasukkan produk dari UMKM ketika UMKM tersebut masih awam dengan teknologi. Sedangkan **Admin Bumdesa** hanya dapat membaca laporan pemasukan, laporan produk, dan pembuatan promosi.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/admins**\n\n### 3. Produsen\n\nProdusen adalah penyedia produk yang akan menjual produk di aplikasi Laron lewat Bumdesa. Bumdesa akan mengurus produk yang masuk. Produsen hanya dapat melakukan pengajuan produk untuk di review Bumdesa, notifikasi penjualan produk, dan produk yang telah masuk di Bumdesa.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/producers**\n\n### 4. Platform Aplikasi\n\n|  | Pelanggan (*customers*) | Admin (*admins*) | Produsen (*producers*) |\n|--|--|--|--|\n| **Website** | - | x | - |\n| **Mobile** | x | - | x |\n{.table-documentation}",
-                    "id": "xKY0l1"
+                    "id": "c8C3OP"
                 }
             ],
             "login": [
                 {
                     "type": "docs",
                     "value": "# Login\n---\n### 1. Penjelasan {.p-my-5}\n\nUntuk mengakses API Laron diperlukan sebuah token autentikasi dari server. Sisi klien dapat meminta token dengan menggunakan API autentikasi dari laron.\n\n### 2. Penggunaan {.p-my-5}\n\nAnda bisa mengaksesnya dengan metode seperti dibawah ini{.p-mb-4}",
-                    "id": "g9Rs7S"
+                    "id": "sNslcP"
                 },
                 {
                     "type": "methodTab",
@@ -96,7 +118,7 @@ export default {
                             "url": "https:\/laron-server-side.test\/api\/v1\/producers\/login"
                         }
                     ],
-                    "id": "Dyu1ml"
+                    "id": "oxkMwK"
                 },
                 {
                     "type": "responseTab",
@@ -114,7 +136,7 @@ export default {
                             "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n_Belum Tersedia_"
                         }
                     ],
-                    "id": "kwghjb"
+                    "id": "GhOoII"
                 },
                 {
                     "type": "responseTab",
@@ -132,12 +154,12 @@ export default {
                             "value": "```json\n{\n\n}\n```"
                         }
                     ],
-                    "id": "XHboZS"
+                    "id": "YIvYoY"
                 },
                 {
                     "type": "docs",
                     "value": "### 3. Login Data {.p-my-5}\n\nAnda memerlukan data untuk login. Anda bisa memakai akun buatan dibawah ini: {.p-mb-4}",
-                    "id": "NAe81w"
+                    "id": "J0Csny"
                 },
                 {
                     "type": "responseTab",
@@ -155,14 +177,14 @@ export default {
                             "value": "```\nBelum tersedia"
                         }
                     ],
-                    "id": "7fZLAT"
+                    "id": "cODGh5"
                 }
             ],
             "register": [
                 {
                     "type": "docs",
                     "value": "# Register\n---\n### 1. Penjelasan {.p-my-5}\n\nJika pengguna belum mendaftar, maka beberapa API tidak dapat di akses. Maka dari itu pengguna perlu mendaftar dengan menggunakan API ini\n\n### 2. Penggunaan {.p-my-5}\n\nAnda bisa mengaksesnya dengan metode seperti dibawah ini {.p-mb-4}",
-                    "id": "LpaKop"
+                    "id": "10GtHu"
                 },
                 {
                     "type": "methodTab",
@@ -186,7 +208,7 @@ export default {
                             "url": "https:\/laron-server-side.test\/api\/v1\/producers\/register"
                         }
                     ],
-                    "id": "lvkRX8"
+                    "id": "9TPCsf"
                 },
                 {
                     "type": "responseTab",
@@ -204,12 +226,12 @@ export default {
                             "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n_Belum Tersedia_"
                         }
                     ],
-                    "id": "NQ0kw9"
+                    "id": "lkeFsA"
                 },
                 {
                     "type": "docs",
                     "value": "**Response :**",
-                    "id": "3s9C9Z"
+                    "id": "8V1WPv"
                 },
                 {
                     "type": "responseTab",
@@ -227,7 +249,7 @@ export default {
                             "value": "```json\n\n\n```"
                         }
                     ],
-                    "id": "gsT5qB"
+                    "id": "GHbo48"
                 }
             ]
         },
@@ -236,14 +258,14 @@ export default {
                 {
                     "type": "docs",
                     "value": "># Resource\n\nResource dalam server Laron adalah sebuah kontrol pada sebuah model di server Laron yang akan melakukan pekerjaan seperti membuat, mengupdate, menghapus, dan melihat (CRUD). Ketika Resource ingin di lihat, sisi klien dapat mentransformasi respon yang di inginkan dengan memakai fitur **Query Plugin** yang disediakan dari server kami. Terdapat resource yang hanya dapat dilihat dan hanya beberapa fitur yang bisa.\n\n> **Query Plugin** akan dijelaskan lebih lanjut di sesi selanjutnya.\n{.quote-info}\n\nUntuk sekarang Resource yang telah dibuat pada server Laron yaitu:\n\n- User\n- Location (Lokasi)\n- Product (Produk)\n- Brand (Brand)\n- Bumdesa\n- Profile (Setiap Role)",
-                    "id": "NjgGTJ"
+                    "id": "YTeoPC"
                 }
             ],
             "resource-user": [
                 {
                     "type": "docs",
                     "value": "# User (Pengguna)\n\nUser mempunyai fungsi vital yang berisi informasi soal data pengguna. Resource ini biasanya menangani fungsi-fungsi autentikasi dan mencari data-data pengguna untuk digunakan sebagai informasi.  Fungsi-fungsi yang dapat dilakukan di resource ini adalah:\n\n### 1. Mendapatkan User dengan ID dari User\nJika anda memerlukan informasi soal user yang sedang dicari. Ini adalah fungsi yang cocok untuk hal itu. User yang akan dikembalikan adalah data yang sesuai dengan ID yang ada di server.",
-                    "id": "hFVJb6"
+                    "id": "jfSWm6"
                 },
                 {
                     "type": "methodTab",
@@ -267,7 +289,7 @@ export default {
                             "url": "https:\/laron-server-side.test\/api\/v1\/users\/$id"
                         }
                     ],
-                    "id": "EMRaNq"
+                    "id": "FTePIO"
                 },
                 {
                     "type": "responseTab",
@@ -285,12 +307,71 @@ export default {
                             "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"photo\": null,\n    \"customer_name\": \"Eli Wahyuni S.E.\",\n    \"created_at\": \"2021-02-24T08:23:25.000000Z\",\n    \"address\": \"Ds. Yosodipuro No. 122, Bandar Lampung 88303, Papua\",\n    \"urban\": \"Banjar\",\n    \"postal_code\": 87301,\n    \"rw\": \"092\",\n    \"rt\": \"867\",\n    \"user_id\": 10,\n    \"subdistrict_id\": 1001001\n  }\n}\n\n```"
                         }
                     ],
-                    "id": "jxf7F4"
+                    "id": "AS9oQJ"
                 },
                 {
                     "type": "docs",
                     "value": "Variabel respon yang tersedia:\n\n| Nama Variabel | Deskripsi | Terlihat pada Role User|\n|--|--|--|\n| *email* | Email dari pengguna | User yang mempunyai data dan Admin |\n| *is_email_verified* | Apakah user telah verifikasi emailnya | Semua Role |\n| *photo* | Link dari foto profil user | Semua Role |\n| *customer_name* (User tipe Customer) | Nama User | Semua Role |\n| *admin_name* (User tipe Admin) | Nama User | Semua Role |\n| *producer_name* (User tipe Producer) | Nama User | Semua Role |\n| *created_at* (User tipe Customer) | Tanggal pembuatan akun tersebut | Semua Role |\n| *address* | Alamat dari pengguna | User yang mempunyai data dan Admin |\n| *urban* | Kelurahan dari pengguna | User yang mempunyai data dan Admin |\n| *postal_code* | Kode pos dari pengguna | User yang mempunyai data dan Admin |\n| *rw* | RW dari pengguna | User yang mempunyai data dan Admin |\n| *rt* | RT dari pengguna | User yang mempunyai data dan Admin |\n| *user_id* | ID dari pengguna | Semua Role |\n| *subdistrict_id* | Kode kecamatan server Laron dari pengguna | Semua Role |\n{.table-documentation}",
-                    "id": "OHviTi"
+                    "id": "8lP4N3"
+                }
+            ]
+        },
+        "query_plugin": {
+            "introduction": [
+                {
+                    "type": "docs",
+                    "value": "# Query Plugin\n\nQuery Plugin (QP) adalah sebuah fitur untuk melakukan pengambilan data layaknya sedang men-query sebuah data SQL pada permintaan sisi klien dengan query parameter GET. Sebutan ini hanya ada pada pengunaan proses request di server Laron.",
+                    "id": "6108qU"
+                }
+            ],
+            "conditional": [
+                {
+                    "type": "docs",
+                    "value": "# Conditional\nQP bagian ini berfungsi untuk memfilter data dengan memakai kondisi yang disediakan resource tersebut. Terdapat dua tipe conditional, yaitu\n- Column Conditional\n  \n  Tipe Conditional ini akan memfilter kolum memakai operator yang tersedia pada resource. Pengunaannya akan digunakan operator yang disediakan, dipisah dengan karakter \"!\" dan ditutup dengan nama kolom yang ingin kita kondisikan. Terdapat macam-macam operator, yaitu:\n  \n| Operator | Fungsi |Contoh\n|--|--|--|\n| **e** | Operator ini akan bekerja layaknya operator *equal* yang akan membenarkan jika dua nilai yang sama|e!is_email_verified|\n| **ne** | Operator ini akan bekerja layaknya operator *not equal* yang akan membenarkan jika dua nilai yang tidak sama|ne!is_email_verified|\n| **gt** | Operator ini akan bekerja layaknya operator *greater than* yang akan membenarkan jika nilai yang dicari lebih besar|gt!age|\n| **lt** | Operator ini akan bekerja layaknya operator *less than* yang akan membenarkan jika nilai yang dicari lebih kecil|lt!age|\n| **gte** | Operator ini akan bekerja layaknya operator *greater than & equal* yang akan membenarkan jika nilai yang dicari lebih besar dan sama dengan itu|gte!price|\n| **lte** | Operator ini akan bekerja layaknya operator *less than & equal* yang akan membenarkan jika nilai yang dicari lebih kecil|lte!price|\n| **bw** | Operator ini akan bekerja layaknya operator *between* yang akan membenarkan jika nilai yang dicari diantara dengan nilai yang di inputkan|bw!created_at|\n| **nbw** | Operator ini akan bekerja layaknya operator *not between* yang akan membenarkan jika nilai yang dicari tidak ada diantara dengan nilai yang di inputkan|nbw!created_at|\n| **fl** | Operator ini akan bekerja layaknya operator *search* yang akan mencari kata-kata didepan dari kata yang di inputkan|fl!name|\n| **ll** | Operator ini akan bekerja layaknya operator *search* yang akan mencari kata-kata dibelakang dari kata yang di inputkan|fl!name|\n| **fll** | Operator ini akan bekerja layaknya operator *search* yang akan mencari kata-kata diantara dua sisi dari kata yang di inputkan|fll!name|\n {.table-documentation}\n \n  Salah satu contoh:",
+                    "id": "SZHO0c"
+                },
+                {
+                    "type": "codePlatform",
+                    "value": [
+                        "```kotlin\n  \/\/ With Retrofit Kotlin.\n\n @GET(\"...\")\n    fun getUserProfile(\n            @Header(\"Authorization\") token: String,\n            @Query(\"eq!is_email_verified\") is_email_verified: Boolean,\n            @Query(\"bw!created_at\") created_at: String\n            ): Deferred<JSONArray>\n\n```",
+                        "```javascript\n\/\/ With Axios\n\nconst params = {\n  \"eq!is_email_verified\": true,\n  \"bw!created_at\":\"21-10-2020,30-10-2020\",\n};\n\nconst res = await axios.get('https:\/\/.....', { params });\n\n```"
+                    ],
+                    "id": "criY5X"
+                },
+                {
+                    "type": "docs",
+                    "value": "- Resource Conditional\n  \n  Tipe kondisi ini biasanya telah disiapkan oleh resource tersebut. Resource Conditional lebih praktis karena anda tidak perlu menggunakan operator dan kolom yang banyak nantinya di query parameter. Biasanya pengunaannya dengan menggunakan kata \"custom\" di ikuti dengan karakter \"!\" dan ditutupi dengan nama Resource Conditional tersebut.\n  \n  Contoh: custom!active_user pada Resource User",
+                    "id": "iPNJaA"
+                }
+            ],
+            "sort": [
+                {
+                    "type": "docs",
+                    "value": "# Sorting\nMengurutkan data tidak akan susah dengan QP ini. Anda hanya tinggal menulis di query parameter dan menggunakan kata \"sort\" dibagian key query. Isi nilai dari sort nantinya adalah nama kolom yang tersedia pada resource. Jika nilai sort berisi karakter \"-\" sebelum nama kolom, maka kolom tersebut akan di urutkan secara **descending**. Jika anda ingin mengurutkan secara **ascending** maka hapus karakter \"-\".\n\nContoh:",
+                    "id": "KuNYsm"
+                },
+                {
+                    "type": "codePlatform",
+                    "value": [
+                        "```kotlin\n\n  \/\/ With Retrofit Kotlin.\n\n @GET(\"...\")\n    fun getUserProfile(\n            @Header(\"Authorization\") token: String,\n            @Query(\"sort\") sort: String,\n            ): Deferred<JSONArray>\n\n```",
+                        "```javascript\n\/\/ With Axios\n\nconst params = {\n  \/\/Ascending\n  \"sort\": \"age\",\n  \/\/Descending\n  \"sort\": \"-age\",\n};\n\nconst res = await axios.get('https:\/\/.....', { params });\n\n```"
+                    ],
+                    "id": "V6z24i"
+                }
+            ],
+            "only_except": [
+                {
+                    "type": "docs",
+                    "value": "# Only \/ Except\n\nQP ini berguna untuk menseleksi kolom apa saja yang akan dikirimkan ke sisi klien. Ini akan mengurangi besar data dari respon balasan sisi server karena hanya beberapa kolom saja yang dibutuhkan. Only \/ Except menseleksi semua key balasan. Pengunaannya hanya memakai kata \"only\" atau \"except\" di key query parameter dan nilainya adalah key balasan sisi server yang disediakan pada resource yang di inginkan.\n\nSeperti pada katanya saja, Only akan menyeleksi kolom yang di inputkan pada nilai query parameter dengan key \"only\". Sebaliknya, Except akan menghilangkan kolom yang di inputkan pada nilai query parameter dengan key \"except\".\n\n> Perlu diketahui bahwa key \"only\" dan \"except\" tidak boleh digunakan secara bersamaan.\n{.quote-warning}",
+                    "id": "11qP3O"
+                },
+                {
+                    "type": "codePlatform",
+                    "value": [
+                        "```kotlin\n\n  \/\/ With Retrofit Kotlin.\n\n @GET(\"...\")\n    fun getUserProfile(\n            @Header(\"Authorization\") token: String,\n            @Query(\"only\") sort: String,\n            ): Deferred<JSONArray>\n\n```",
+                        "```javascript\n\/\/ With Axios\n\nconst params = {\n  \/\/Only\n  \"only\": \"age,name\",\n  \/\/Except\n  \"except\": \"age\",\n  \/\/Pilih salah satu.\n};\n\nconst res = await axios.get('https:\/\/.....', { params });\n\n```"
+                    ],
+                    "id": "Thyke5"
                 }
             ]
         }
