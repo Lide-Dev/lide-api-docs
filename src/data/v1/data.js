@@ -43,6 +43,20 @@ export default {
                     "to": "\/docs\/auth\/register"
                 }
             ]
+        },
+        {
+            "label": "Resource",
+            "command": null,
+            "items": [
+                {
+                    "label": "Penjelasan",
+                    "to": "\/docs\/resource\/introducing"
+                },
+                {
+                    "label": "User",
+                    "to": "\/docs\/resource\/resource-user"
+                }
+            ]
         }
     ],
     "key": { ...initDefault, 
@@ -51,14 +65,14 @@ export default {
                 {
                     "type": "docs",
                     "value": "# Tipe Pengguna\n---\n\nAplikasi Laron mempunyai 3 tipe pengguna yang akan mempengaruhi bisnis dari aplikasi ini. Setiap tipe pengguna mempunyai akses API yang berbeda sesuai dengan tipe pengguna. Tipe pengguna tersebut terdiri dari:\n\n- Pelanggan (_Customer_)\n- Admin (Pengelola dan Pemilik Bumdesa)\n- Produsen (_Producer_)\n\n### 1. Pelanggan\n\nPelanggan disini mempunyai fungsi untuk melihat produk, berkomunikasi dengan layanan bumdesa, dan membeli produk. Maksud dari berkomunikasi disini adalah pelanggan dapat bertanya soal stok atau bertanya lebih jauh lagi tentang produk yang pelanggan tertarik.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/customers**\n\n### 2. Admin\n\nAdmin adalah pengelola tertinggi dari aplikasi Laron. Terdapat dua tipe admin, yaitu **Admin Pengelola** dan **Admin Bumdesa**. **Admin Pengelola** mempunyai fungsi untuk mengurus produk yang masuk dari UMKM atau produk desa dan berkomunikasi dengan pelanggan. **Admin Pengelola** juga dapat memasukkan produk dari UMKM ketika UMKM tersebut masih awam dengan teknologi. Sedangkan **Admin Bumdesa** hanya dapat membaca laporan pemasukan, laporan produk, dan pembuatan promosi.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/admins**\n\n### 3. Produsen\n\nProdusen adalah penyedia produk yang akan menjual produk di aplikasi Laron lewat Bumdesa. Bumdesa akan mengurus produk yang masuk. Produsen hanya dapat melakukan pengajuan produk untuk di review Bumdesa, notifikasi penjualan produk, dan produk yang telah masuk di Bumdesa.\n\nUntuk mengakses API pelanggan memakai **https:\/laron-server-side.test\/api\/v1\/producers**\n\n### 4. Platform Aplikasi\n\n|  | Pelanggan (*customers*) | Admin (*admins*) | Produsen (*producers*) |\n|--|--|--|--|\n| **Website** | - | x | - |\n| **Mobile** | x | - | x |\n{.table-documentation}",
-                    "id": "QteXNv"
+                    "id": "xKY0l1"
                 }
             ],
             "login": [
                 {
                     "type": "docs",
                     "value": "# Login\n---\n### 1. Penjelasan {.p-my-5}\n\nUntuk mengakses API Laron diperlukan sebuah token autentikasi dari server. Sisi klien dapat meminta token dengan menggunakan API autentikasi dari laron.\n\n### 2. Penggunaan {.p-my-5}\n\nAnda bisa mengaksesnya dengan metode seperti dibawah ini{.p-mb-4}",
-                    "id": "cO1st8"
+                    "id": "g9Rs7S"
                 },
                 {
                     "type": "methodTab",
@@ -82,7 +96,25 @@ export default {
                             "url": "https:\/laron-server-side.test\/api\/v1\/producers\/login"
                         }
                     ],
-                    "id": "Din47Z"
+                    "id": "Dyu1ml"
+                },
+                {
+                    "type": "responseTab",
+                    "value": [
+                        {
+                            "title": "Admin",
+                            "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n_Belum Tersedia_"
+                        },
+                        {
+                            "title": "Pelanggan",
+                            "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n<div class='table-responsive'>\n\n| Nama | Sifat | Tipe Data | Deskripsi |\n|--|--|--|--|\n| email | Required | _string_ | Email dari pengguna\n| password | Required | _string_ | Password dari pengguna\n{.table-documentation}\n\n<\/div>"
+                        },
+                        {
+                            "title": "Produsen",
+                            "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n_Belum Tersedia_"
+                        }
+                    ],
+                    "id": "kwghjb"
                 },
                 {
                     "type": "responseTab",
@@ -100,12 +132,12 @@ export default {
                             "value": "```json\n{\n\n}\n```"
                         }
                     ],
-                    "id": "1z739f"
+                    "id": "XHboZS"
                 },
                 {
                     "type": "docs",
                     "value": "### 3. Login Data {.p-my-5}\n\nAnda memerlukan data untuk login. Anda bisa memakai akun buatan dibawah ini: {.p-mb-4}",
-                    "id": "Y9bMuM"
+                    "id": "NAe81w"
                 },
                 {
                     "type": "responseTab",
@@ -123,14 +155,14 @@ export default {
                             "value": "```\nBelum tersedia"
                         }
                     ],
-                    "id": "me3g9Q"
+                    "id": "7fZLAT"
                 }
             ],
             "register": [
                 {
                     "type": "docs",
                     "value": "# Register\n---\n### 1. Penjelasan {.p-my-5}\n\nJika pengguna belum mendaftar, maka beberapa API tidak dapat di akses. Maka dari itu pengguna perlu mendaftar dengan menggunakan API ini\n\n### 2. Penggunaan {.p-my-5}\n\nAnda bisa mengaksesnya dengan metode seperti dibawah ini {.p-mb-4}",
-                    "id": "DNDF5K"
+                    "id": "LpaKop"
                 },
                 {
                     "type": "methodTab",
@@ -154,7 +186,7 @@ export default {
                             "url": "https:\/laron-server-side.test\/api\/v1\/producers\/register"
                         }
                     ],
-                    "id": "5pRPax"
+                    "id": "lvkRX8"
                 },
                 {
                     "type": "responseTab",
@@ -172,12 +204,12 @@ export default {
                             "value": "**Data yang bisa dikirim:** {.p-mb-4}\n\n_Belum Tersedia_"
                         }
                     ],
-                    "id": "tDYZ12"
+                    "id": "NQ0kw9"
                 },
                 {
                     "type": "docs",
                     "value": "**Response :**",
-                    "id": "qLd1AK"
+                    "id": "3s9C9Z"
                 },
                 {
                     "type": "responseTab",
@@ -195,7 +227,70 @@ export default {
                             "value": "```json\n\n\n```"
                         }
                     ],
-                    "id": "7xZKUM"
+                    "id": "gsT5qB"
+                }
+            ]
+        },
+        "resource": {
+            "introducing": [
+                {
+                    "type": "docs",
+                    "value": "># Resource\n\nResource dalam server Laron adalah sebuah kontrol pada sebuah model di server Laron yang akan melakukan pekerjaan seperti membuat, mengupdate, menghapus, dan melihat (CRUD). Ketika Resource ingin di lihat, sisi klien dapat mentransformasi respon yang di inginkan dengan memakai fitur **Query Plugin** yang disediakan dari server kami. Terdapat resource yang hanya dapat dilihat dan hanya beberapa fitur yang bisa.\n\n> **Query Plugin** akan dijelaskan lebih lanjut di sesi selanjutnya.\n{.quote-info}\n\nUntuk sekarang Resource yang telah dibuat pada server Laron yaitu:\n\n- User\n- Location (Lokasi)\n- Product (Produk)\n- Brand (Brand)\n- Bumdesa\n- Profile (Setiap Role)",
+                    "id": "NjgGTJ"
+                }
+            ],
+            "resource-user": [
+                {
+                    "type": "docs",
+                    "value": "# User (Pengguna)\n\nUser mempunyai fungsi vital yang berisi informasi soal data pengguna. Resource ini biasanya menangani fungsi-fungsi autentikasi dan mencari data-data pengguna untuk digunakan sebagai informasi.  Fungsi-fungsi yang dapat dilakukan di resource ini adalah:\n\n### 1. Mendapatkan User dengan ID dari User\nJika anda memerlukan informasi soal user yang sedang dicari. Ini adalah fungsi yang cocok untuk hal itu. User yang akan dikembalikan adalah data yang sesuai dengan ID yang ada di server.",
+                    "id": "hFVJb6"
+                },
+                {
+                    "type": "methodTab",
+                    "value": [
+                        {
+                            "title": "Admin",
+                            "method": "GET",
+                            "queryPlugin": "Only\/Except Column",
+                            "url": "https:\/laron-server-side.test\/api\/v1\/users\/$id"
+                        },
+                        {
+                            "title": "Pelanggan",
+                            "method": "GET",
+                            "queryPlugin": "Only\/Except Column",
+                            "url": "https:\/laron-server-side.test\/api\/v1\/users\/$id"
+                        },
+                        {
+                            "title": "Produsen",
+                            "method": "GET",
+                            "queryPlugin": "Only\/Except Column",
+                            "url": "https:\/laron-server-side.test\/api\/v1\/users\/$id"
+                        }
+                    ],
+                    "id": "EMRaNq"
+                },
+                {
+                    "type": "responseTab",
+                    "value": [
+                        {
+                            "title": "Admin",
+                            "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"email\": \"samiah.mansur@example.com\",\n    \"photo\": null,\n    \"customer_name\": \"Eli Wahyuni S.E.\",\n    \"created_at\": \"2021-02-24T08:23:25.000000Z\",\n    \"birthday\": \"2007-07-02\",\n    \"phone_number\": \"0907 5854 224\",\n    \"address\": \"Ds. Yosodipuro No. 122, Bandar Lampung 88303, Papua\",\n    \"urban\": \"Banjar\",\n    \"postal_code\": 87301,\n    \"rw\": \"092\",\n    \"rt\": \"867\",\n    \"user_id\": 10,\n    \"subdistrict_id\": 1001001\n  }\n}\n\n```"
+                        },
+                        {
+                            "title": "Pelanggan",
+                            "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"photo\": null,\n    \"customer_name\": \"Eli Wahyuni S.E.\",\n    \"created_at\": \"2021-02-24T08:23:25.000000Z\",\n    \"address\": \"Ds. Yosodipuro No. 122, Bandar Lampung 88303, Papua\",\n    \"urban\": \"Banjar\",\n    \"postal_code\": 87301,\n    \"rw\": \"092\",\n    \"rt\": \"867\",\n    \"user_id\": 10,\n    \"subdistrict_id\": 1001001\n  }\n}\n\n```"
+                        },
+                        {
+                            "title": "Produsen",
+                            "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"photo\": null,\n    \"customer_name\": \"Eli Wahyuni S.E.\",\n    \"created_at\": \"2021-02-24T08:23:25.000000Z\",\n    \"address\": \"Ds. Yosodipuro No. 122, Bandar Lampung 88303, Papua\",\n    \"urban\": \"Banjar\",\n    \"postal_code\": 87301,\n    \"rw\": \"092\",\n    \"rt\": \"867\",\n    \"user_id\": 10,\n    \"subdistrict_id\": 1001001\n  }\n}\n\n```"
+                        }
+                    ],
+                    "id": "jxf7F4"
+                },
+                {
+                    "type": "docs",
+                    "value": "Variabel respon yang tersedia:\n\n| Nama Variabel | Deskripsi | Terlihat pada Role User|\n|--|--|--|\n| *email* | Email dari pengguna | User yang mempunyai data dan Admin |\n| *is_email_verified* | Apakah user telah verifikasi emailnya | Semua Role |\n| *photo* | Link dari foto profil user | Semua Role |\n| *customer_name* (User tipe Customer) | Nama User | Semua Role |\n| *admin_name* (User tipe Admin) | Nama User | Semua Role |\n| *producer_name* (User tipe Producer) | Nama User | Semua Role |\n| *created_at* (User tipe Customer) | Tanggal pembuatan akun tersebut | Semua Role |\n| *address* | Alamat dari pengguna | User yang mempunyai data dan Admin |\n| *urban* | Kelurahan dari pengguna | User yang mempunyai data dan Admin |\n| *postal_code* | Kode pos dari pengguna | User yang mempunyai data dan Admin |\n| *rw* | RW dari pengguna | User yang mempunyai data dan Admin |\n| *rt* | RT dari pengguna | User yang mempunyai data dan Admin |\n| *user_id* | ID dari pengguna | Semua Role |\n| *subdistrict_id* | Kode kecamatan server Laron dari pengguna | Semua Role |\n{.table-documentation}",
+                    "id": "OHviTi"
                 }
             ]
         }
