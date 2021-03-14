@@ -1,0 +1,64 @@
+[{
+    "type": "docs",
+    "value": "# User (Pengguna)\n\nUser mempunyai fungsi vital yang berisi informasi soal data pengguna. Resource ini biasanya menangani fungsi-fungsi autentikasi dan mencari data-data pengguna untuk digunakan sebagai informasi.  Fungsi-fungsi yang dapat dilakukan di resource ini adalah:\n\n### 1. Mendapatkan User dengan ID dari User\nJika anda memerlukan informasi soal user yang sedang dicari. Ini adalah fungsi yang cocok untuk hal itu. User yang akan dikembalikan adalah data yang sesuai dengan ID yang ada di server.\n\n> Perlu diketahui bahwa setiap role mempunyai endpoint masing-masing. Ketika anda melakukan pencarian ID dengan role user Customer pada endpoint Admin, response yang dikirim akan menjadi *Not Found*.\n{.quote-warning}"
+}, {
+    "type": "methodTab",
+    "value": [{
+        "title": "Admin",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/admins\/$id",
+        "authorization": "Semua Role Admin."
+    }, {
+        "title": "Pelanggan",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/customers\/$id",
+        "authorization": "Semua Role Admin, Customer."
+    }, {
+        "title": "Produsen",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/producers\/$id",
+        "authorization": "Semua Role Admin, Produsen."
+    }]
+}, {
+    "type": "responseTab",
+    "value": [{
+        "title": "Admin",
+        "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"email\": \"eratozassist@gmail.com\",\n    \"photo\": null,\n    \"customer_name\": \"Herlandro Tri B\",\n    \"created_at\": null,\n    \"birthday\": \"1999-09-10\",\n    \"phone_number\": null,\n    \"location\": {\n      \"location_id\": 13,\n      \"address\": \"Gg. Tubagus Ismail No. 806, Batu 10762, Maluku\",\n      \"urban\": \"Tanjung Pinang\",\n      \"postal_code\": 99277,\n      \"rw\": \"785\",\n      \"rt\": \"751\",\n      \"user_id\": 13,\n      \"subdistrict_id\": 1001001\n    }\n  }\n}\n\n```\n\nVariabel respon yang tersedia:\n\n| Nama Variabel | Deskripsi | Terlihat pada Role User|\n|--|--|--|\n| *email* | Email dari pengguna | User yang mempunyai data dan Admin |\n| *is_email_verified* | Apakah user telah verifikasi emailnya | Semua Role |\n| *photo* | Link dari foto profil user | Semua Role |\n| *customer_name* (User tipe Customer) | Nama User | Semua Role |\n| *admin_name* (User tipe Admin) | Nama User | Semua Role |\n| *producer_name* (User tipe Producer) | Nama User | Semua Role |\n| *created_at* (User tipe Customer) | Tanggal pembuatan akun tersebut | Semua Role |\n| *address* | Alamat dari pengguna | User yang mempunyai data dan Admin |\n| *urban* | Kelurahan dari pengguna | User yang mempunyai data dan Admin |\n| *postal_code* | Kode pos dari pengguna | User yang mempunyai data dan Admin |\n| *rw* | RW dari pengguna | User yang mempunyai data dan Admin |\n| *rt* | RT dari pengguna | User yang mempunyai data dan Admin |\n| *user_id* | ID dari pengguna | Semua Role |\n| *subdistrict_id* | Kode kecamatan server Laron dari pengguna | Semua Role |\n{.table-documentation}"
+    }, {
+        "title": "Pelanggan",
+        "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"photo\": null,\n    \"customer_name\": \"Eli Wahyuni S.E.\",\n    \"created_at\": \"2021-02-24T08:23:25.000000Z\",\n    \"address\": \"Ds. Yosodipuro No. 122, Bandar Lampung 88303, Papua\",\n    \"urban\": \"Banjar\",\n    \"postal_code\": 87301,\n    \"rw\": \"092\",\n    \"rt\": \"867\",\n    \"user_id\": 10,\n    \"subdistrict_id\": 1001001\n  }\n}\n\n```\n\nVariabel respon yang tersedia:\n\n| Nama Variabel | Deskripsi | Terlihat pada Role User|\n|--|--|--|\n| *email* | Email dari pengguna | User yang mempunyai data dan Admin |\n| *is_email_verified* | Apakah user telah verifikasi emailnya | Semua Role |\n| *photo* | Link dari foto profil user | Semua Role |\n| *customer_name* (User tipe Customer) | Nama User | Semua Role |\n| *admin_name* (User tipe Admin) | Nama User | Semua Role |\n| *producer_name* (User tipe Producer) | Nama User | Semua Role |\n| *created_at* (User tipe Customer) | Tanggal pembuatan akun tersebut | Semua Role |\n| *location* | Koleksi dari lokasi penyimpanan Customer (Lebih lengkapnya ada pada Resource Location) | User yang mempunyai data dan Admin |\n| *user_id* | ID dari pengguna | Semua Role |\n| *subdistrict_id* | Kode kecamatan server Laron dari pengguna | Semua Role |\n{.table-documentation}"
+    }, {
+        "title": "Produsen",
+        "value": "```json\n{\n  \"data\": {\n    \"is_email_verified\": true,\n    \"email\": \"eratozassist@gmail.com\",\n    \"photo\": null,\n    \"customer_name\": \"Herlandro Tri B\",\n    \"created_at\": null,\n    \"birthday\": \"1999-09-10\",\n    \"phone_number\": null,\n    \"location\": {\n      \"location_id\": 13,\n      \"address\": \"Gg. Tubagus Ismail No. 806, Batu 10762, Maluku\",\n      \"urban\": \"Tanjung Pinang\",\n      \"postal_code\": 99277,\n      \"rw\": \"785\",\n      \"rt\": \"751\",\n      \"user_id\": 13,\n      \"subdistrict_id\": 1001001\n    }\n  }\n}\n\n```\n\nVariabel respon yang tersedia:\n\n| Nama Variabel | Deskripsi | Terlihat pada Role User|\n|--|--|--|\n| *email* | Email dari pengguna | User yang mempunyai data dan Admin |\n| *is_email_verified* | Apakah user telah verifikasi emailnya | Semua Role |\n| *photo* | Link dari foto profil user | Semua Role |\n| *customer_name* (User tipe Customer) | Nama User | Semua Role |\n| *admin_name* (User tipe Admin) | Nama User | Semua Role |\n| *producer_name* (User tipe Producer) | Nama User | Semua Role |\n| *created_at* (User tipe Customer) | Tanggal pembuatan akun tersebut | Semua Role |\n| *address* | Alamat dari pengguna | User yang mempunyai data dan Admin |\n| *urban* | Kelurahan dari pengguna | User yang mempunyai data dan Admin |\n| *postal_code* | Kode pos dari pengguna | User yang mempunyai data dan Admin |\n| *rw* | RW dari pengguna | User yang mempunyai data dan Admin |\n| *rt* | RT dari pengguna | User yang mempunyai data dan Admin |\n| *user_id* | ID dari pengguna | Semua Role |\n| *subdistrict_id* | Kode kecamatan server Laron dari pengguna | Semua Role |\n{.table-documentation}"
+    }]
+}];
+
+[{
+    "type": "docs",
+    "value": "# User (Pengguna)\n\nUser mempunyai fungsi vital yang berisi informasi soal data pengguna. Resource ini biasanya menangani fungsi-fungsi autentikasi dan mencari data-data pengguna untuk digunakan sebagai informasi.  Fungsi-fungsi yang dapat dilakukan di resource ini adalah:\n\n### 1. Mendapatkan User dengan ID dari User\nJika anda memerlukan informasi soal user yang sedang dicari. Ini adalah fungsi yang cocok untuk hal itu. User yang akan dikembalikan adalah data yang sesuai dengan ID yang ada di server.\n\n> Perlu diketahui bahwa setiap role mempunyai endpoint masing-masing. Ketika anda melakukan pencarian ID dengan role user Customer pada endpoint Admin, response yang dikirim akan menjadi *Not Found*.\n{.quote-warning}"
+},
+{
+    "type": "methodTab",
+    "value": [{
+        "title": "Admin",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/admins\/$id",
+        "authorization": "Semua Role Admin."
+    }, {
+        "title": "Pelanggan",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/customers\/$id",
+        "authorization": "Semua Role Admin, Customer."
+    }, {
+        "title": "Produsen",
+        "method": "GET",
+        "queryPlugin": "Only\/Except Column",
+        "url": "https:\/laron-server-side.test\/api\/v1\/producers\/$id",
+        "authorization": "Semua Role Admin, Produsen."
+    }]
+}]

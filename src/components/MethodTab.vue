@@ -4,6 +4,7 @@
       <ul>
         <li><strong>Method</strong> : {{ tab.method }}</li>
         <li><strong>Query Plugin</strong> : {{ tab.queryPlugin }}</li>
+        <li><strong>Authorization</strong> : {{ tab.authorization??"*" }}</li>
         <li>
           <strong>URL</strong> : <i>{{ tab.url }}</i>
         </li>

@@ -30,7 +30,7 @@ export default {
   components: { CodeTabPlatform, MethodTab, RoleTab },
   props: { source: Array },
   setup(props) {
-    console.log(props.source);
+    console.log(props.source,"testIng");
     const plugins = [{ plugin: MarkdownAttribute }];
     return { plugins };
   },
@@ -39,3 +39,4 @@ export default {
 
 <style>
 </style>
+

@@ -18,7 +18,7 @@
         <pre class="p-text-center">Log: {{ log }}</pre>
       </div>
       <div class="p-col-7">
-        <ScrollPanel style="width: 100%; height: 400px">
+        <ScrollPanel style="width: 100%; height: 600px">
           <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12">
               <label for="key">Key</label>
@@ -473,7 +473,7 @@ export default {
 <style scoped>
 .layout-pages {
   margin-top: 20px;
-  min-height: 75vh;
+  min-height: 95vh;
   color: var(--text-color);
 }
 

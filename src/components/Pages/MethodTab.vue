@@ -19,6 +19,14 @@
           />
         </div>
         <div class="p-field p-col-12">
+          <label :for="tab.title + 'Authorization'">Authorization</label>
+          <InputText
+            :id="tab.title + 'Authorization'"
+            type="text"
+            v-model="tab.authorization"
+          />
+        </div>
+        <div class="p-field p-col-12">
           <label :for="tab.title + 'Url'">URL</label>
           <InputText :id="tab.title + 'Url'" type="text" v-model="tab.url" />
         </div>
